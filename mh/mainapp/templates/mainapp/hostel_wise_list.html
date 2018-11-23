@@ -1,0 +1,63 @@
+{% extends "mainapp/base.html" %}
+{% block link %}
+
+<style type="text/css">
+
+footer{
+position:absolute;
+bottom:0;
+width:100%;
+height:80px;
+}
+
+</style>
+
+  {% endblock %}
+{% block content %}
+
+<!-- <div class="container">
+  {% for std in student_list %}
+    <h2><a href="{% url 'mainapp:student_profile' pk=std.pk %}">{{std.name}} </a></h2>
+  {%endfor %}
+</div> -->
+
+<div class="container">
+
+          <div class="row">
+              <!-- Team member -->
+              {% for n in student_list %}
+
+
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="jumbotron">
+
+                  <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <p><img class=" img-fluid img-circle img-responsive" src="{{n.propic.url}}" alt="card image"></p>
+                                      <h4 class="card-title"><a href="{% url 'mainapp:student_profile' pk=n.pk %}">{{n.name}}</a></h4>
+                                      <p class="card-text">{{n.hostel}}</p>
+
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {% endfor %}
+
+          </div>
+      <!-- </div>
+
+  </section> -->
+
+</div>
+
+
+{% endblock  %}

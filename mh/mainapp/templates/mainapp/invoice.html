@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>MH Mace</title>
+
+
+  <link href="{% static 'mainapp/images/favicon.ico' %}" rel="icon">
+
+      <link rel="stylesheet" href="{% static 'mainapp/invoice/css/style.css' %}">
+<script type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</script>
+
+      <!-- <link href="{% static 'mainapp/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Mar Athanasius College of Engineering</title>
+		<link rel="stylesheet" href="{% static 'mainapp/invoice/css/style.css' %}">
+		<link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<header>
+      <br><br>
+			<h1>Mar Athanasius College of Engineering</h1>
+      <h1>Hostel Bill</h1>
+			<!-- <address contenteditable> -->
+			     <!-- <h4>	{{fee_detail.sid.name}}</h4>
+				<p>{{fee_detail.sid.Class}}</p>
+				<p>{{fee_detail.sid.dept}}</p>
+        <p>{{fee_detail.sid.hostel}}</p> -->
+
+			<!-- </address> -->
+
+
+			<!-- <span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span> -->
+		<!-- </header>
+		<article>
+			<h1>Recipient</h1>
+			<address contenteditable>
+				<p>Some Company<br>c/o Some Guy</p> -->
+			</address>
+			<table class="meta">
+				<tr>
+					<p>	Name&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp{{fee_detail.sid.name}}</p><th><span >Date</span></th>
+					<td><span contenteditable>{{fee_detail.pay_date}}</span></td>
+				</tr>
+				<tr>
+			<br> <p>Class&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp{{fee_detail.sid.Class}}</p>		<th><span contenteditable>Invoice</span></th>
+					<td><span contenteditable></span></td>
+				</tr>
+				<tr>
+		<th><span contenteditable>Hostel</span></th>
+          <td><span>{{fee_detail.sid.hostel}}</span></td>
+
+				</tr>
+			</table>
+      	<br>	Branch&nbsp&nbsp:&nbsp&nbsp{{fee_detail.sid.dept}}
+			<table class="inventory">
+				<thead>
+					<tr>
+						<th><span >Sl No</span></th>
+						<th><span >Particulars</span></th>
+						<th><span >Amount</span></th>
+						<!-- <th><span contenteditable>Quantity</span></th>
+						<th><span contenteditable>Price</span></th> -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a class=""></a><span >1.</span></td>
+						<td><span >Room Rent</span></td>
+						<td><span data-prefix></span><span contenteditable >{{fee_detail.hostel_fee}}</span></td>
+					</tr>
+          <tr>
+						<td><a class=""></a><span >2.</span></td>
+						<td><span >Mess Fee</span></td>
+						<td><span data-prefix></span><span contenteditable>{{fee_detail.mess_fee}}</span></td>
+					</tr>
+          <tr>
+						<td><a class=""></a><span >3.</span></td>
+						<td><span >Fine</span></td>
+						<td><span data-prefix></span><span contenteditable>{{fee_detail.fine}}</span></td>
+					</tr>
+          <tr>
+						<td><a class=""></a><span >4.</span></td>
+						<td><span >Computer Fee</span></td>
+						<td><span data-prefix></span><span contenteditable></span></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- <a class="add">+</a> -->
+			<table class="balance">
+				<tr>
+					<th><span contenteditable>Total</span></th>
+					<td><span data-prefix></span><span>{{fee_detail.fee}}</span></td>
+				</tr>
+				<tr>
+					<th><span contenteditable>Amount Paid</span></th>
+					<td><span data-prefix></span><span contenteditable>0.00</span></td>
+				</tr>
+				<!-- <tr>
+					<th><span contenteditable>Balance Due</span></th>
+					<td><span data-prefix>$</span><span>600.00</span></td>
+				</tr> -->
+			</table>
+		</article>
+		<!-- <aside> -->
+      <br><br><br><br><br><br><br><br><br><br>
+      <br><br><br>
+
+			<div contenteditable>
+				<p></p>
+			</div>
+		<!-- </aside> -->
+	</body>
+  <h1>Additional Notes</h1>
+    <div contenteditable>
+      <p>Hostel fee is remitted. </p>
+    </div>
+<br><br><br>
+</html>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ <a class="button"  href="{% url 'mainapp:admin_page' %}">Done</a>
+
+
+
+    <script  src="{% static 'mainapp/invoice/js/index.js' %}"></script>
+
+
+
+
+</body>
+
+</html>

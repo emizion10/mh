@@ -1,0 +1,193 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> MH MACE</title>
+  <link href="{% static 'mainapp/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/base/style.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/responsive.css' %}" rel="stylesheet">
+
+
+	{% block link %}
+
+  <style type="text/css">
+
+  footer{
+position:absolute;
+bottom:0;
+width:100%;
+height:80px;
+}
+
+</style>
+
+    {% endblock %}
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <style type="text/css">
+
+
+header{ background:#C7DD8B; height:70px; }
+footer{ background:#DB8A8A; }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#navbar-example">
+
+
+
+  <header>
+    <!-- header-area start -->
+    <div id="sticker" class="header-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+
+						<nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+                <!-- Brand -->
+                <a class="navbar-brand page-scroll sticky-logo" href="{% url 'mainapp:index' %}">
+                  <h1>M<span>e</span>ns Hostel</h1>
+                  <!-- Uncomment below if you prefer to use an image logo -->
+                  <!-- <img src="mainapp/images/logo.png" alt="" title=""> -->
+								</a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+
+              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active">
+                    <a class="page-scroll" href="{%url 'mainapp:index' %}">Home</a>
+                  </li>
+                  <!-- <li>
+                    <a class="page-scroll" href="#about">About</a>
+                  </li> -->
+                  <!-- <li>
+                    <a class="page-scroll" href="{%url 'mainapp:index' %}">Hostels</a>
+
+                  </li> -->
+                  <!-- <li>
+                    <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+                  </li> -->
+
+                  <!-- <li>
+                    <a class="page-scroll" href="#admission">Admission</a>
+                  </li> -->
+                  <!-- <li>
+                    <a class="page-scroll" href="#news">News</a>
+                  </li> -->
+                  {% if user.is_staff %}
+                  <!-- <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li> -->
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li> <a href="{% url 'mainapp:admin_page' %}">Admin</a> </li>
+                      <li><a  href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                  {% else %}
+                  <!-- <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li> -->
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="{% url 'mainapp:profile' %}"> Profile </a></li>
+
+                      <li><a  href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                  {% endif %}
+                </ul>
+
+
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active">
+                    <a class="page-scroll" href="{%url 'mainapp:index' %}">Home</a>
+                  </li>
+                  <!-- <li>
+                    <a class="page-scroll" href="#about">About</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#hostel">Hostels</a>
+                  </li>
+                  <li>
+                    <a class="page-scroll" href="#login">Login</a>
+                  </li>
+
+                  <!-- <li>
+                    <a class="page-scroll" href="#admission">Admission</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#news">News</a>
+                  </li>
+                  <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li>
+                  <!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href=# >drop down 1</a></li>
+                      <li><a href=# >Drop Down 2</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </div>
+              <!-- navbar-collapse -->
+            </nav>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<br>
+{% block content %}
+
+
+{%  endblock %}
+
+<br><br>
+<footer>
+
+  <div class="footer-area-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="copyright text-center">
+            <p>
+              &copy; Copyright <strong> </strong>. All Rights Reserved
+            </p>
+          </div>
+          <div class="credits">
+        
+            Designed by <a href="https://bootstrapmade.com/">Group 6
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="{% static 'mainapp/js/jquery.min.js' %}"></script>
+<script src="{% static 'mainapp/js/bootstrap.min1.js' %}"></script>
+{% block script %}
+  {% endblock %}
+
+
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+{% extends 'mainapp/base.html' %}
+
+{% block link %}
+
+<style type="text/css">
+
+footer{
+position:relative;
+bottom:0;
+width:100%;
+height:80px;
+}
+
+</style>
+
+  {% endblock %}
+
+
+{% block content %}
+
+
+{% if user.is_superuser %}
+<div class="container">
+<!--
+  {% for hostel in hostel_list %}
+  <a href="{% url 'mainapp:hostel_wise_list' pk=hostel.pk %}"><h3>{{hostel.hostel_name}}</h3></a>
+  {% endfor %} -->
+
+
+
+<!-- hostel Card -->
+<div class="row">
+  <!-- Start Left Blog -->
+  {% for n in hostel_list %}
+
+  <div class="col-md-6 col-sm-6  col-xs-10">
+    <div class="jumbotron">
+
+      <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+          <div class="mainflip">
+              <div class="frontside">
+                  <div class="card">
+                      <div class="card-body text-center">
+                          <p><img class=" img-fluid img-circle img-responsive" src="{{n.hostelpic.url}}" alt="card image"></p>
+                          <h4 class="card-title"><a href="{% url 'mainapp:hostel_wise_list' pk=n.pk %}">{{n.hostel_name}}</a></h4>
+                          <!-- <p class="card-text">{{n.descrip}}</p> -->
+
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  {% endfor %}
+  <!-- End Right Blog-->
+</div>
+
+<!-- End of Hostel Card  -->
+{% else %}
+
+{% if user.is_staff %}
+
+<div id="login" class="services-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline services-head text-center">
+            <h2>Warden Page</h2>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="services-contents">
+          <!-- Start Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                      <i class="fas fa-user-graduate"></i>
+                    </a>
+                    <a href="{% url "mainapp:new_student" %}">
+                  <h4>Add Student</h4></a>
+
+                </div>`
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                      <i class="fas fa-credit-card"></i>
+                    </a>
+                    <a href=" {% url "mainapp:student_list" %}">
+                  <h4>View Students</h4></a>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                      <i class="fas fa-bell"></i>
+                    </a>
+                    <a href="{% url "mainapp:new_notification" %}">
+                   <h4>New Notification</h4></a>
+
+                </div>
+              </div>
+                <!-- new -->
+
+
+
+
+              <!-- end about-details -->
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="login" class="services-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+           <div class="section-headline services-head text-center">
+              <!-- <h2>Warden Page</h2>  -->
+              <!-- <br> -->
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <!-- <div class="services-contents"> -->
+            <!-- Start Left services -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="about-move">
+                <div class="services-details">
+                  <div class="single-services">
+                    <a class="services-icon" href="#">
+                    <i class="fas fa-id-card-alt"></i>
+                      </a>
+                      <a href="{% url "mainapp:manage_notification" %}">
+                    <h4>Manage Notifications</h4></a>
+
+                  </div>`
+                </div>
+                <!-- end about-details -->
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+
+              <div class="about-move">
+                <div class="services-details">
+                  <div class="single-services">
+                    <a class="services-icon" href="#">
+                        <i class="fas fa-credit-card"></i>
+                      </a>
+                      <a href=" {% url "mainapp:student_list" %}">
+                    <h4>View Students</h4></a>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <!-- end col-md-4 -->
+              <div class=" about-move">
+                <div class="services-details">
+                  <div class="single-services">
+                    <a class="services-icon" href="#">
+                        <i class="fas fa-bell"></i>
+                      </a>
+                      <a href="{% url "mainapp:new_notification" %}">
+                     <h4>New Notification</h4></a>
+
+                  </div>
+                </div>
+                  <!-- new -->
+
+
+
+
+                <!-- end about-details -->
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+	{% endif %}
+
+	{% endif %}
+
+
+	{%  endblock %}

@@ -1,0 +1,33 @@
+{% extends "mainapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block link %}
+
+<style type="text/css">
+
+footer{
+position:absolute;
+bottom:0;
+width:100%;
+height:80px;
+}
+
+</style>
+
+  {% endblock %}
+
+
+{% block content %}
+<br><br>
+<div class="container">
+<br><br>
+  <form class="col-lg-4 col-lg-4  form-horizontal" method="POST">
+    {% csrf_token %}
+    <p>{{form|crispy}}</p>
+
+    <button type="submit" class="btn btn-success col-md-12 col-sm-4  col-xs-12"  >ADD</button>
+  </form>
+
+</div>
+
+{% endblock  %}

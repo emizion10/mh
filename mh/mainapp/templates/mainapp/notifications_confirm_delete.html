@@ -1,0 +1,32 @@
+{% extends "mainapp/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block link %}
+
+<style type="text/css">
+
+footer{
+position:absolute;
+bottom:0;
+width:100%;
+height:80px;
+}
+
+</style>
+
+  {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <form class="col-lg-6 col-lg-8 " method="POST">
+    {% csrf_token %}
+      <p>Are you sure you want to delete "{{ object }}"?</p>
+    <button type="submit" class=" col-lg-10  btn btn-success" >Confirm</button>
+  </form>
+
+</div>
+
+{% endblock  %}

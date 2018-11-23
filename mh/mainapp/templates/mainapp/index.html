@@ -1,0 +1,898 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> MH MACE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'mainapp/images/favicon.ico' %}" rel="icon">
+  <link href="{% static 'mainapp/images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'mainapp/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'mainapp/css/nivo-slider.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/owl.carousel.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/owl.transitions.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainapp/css/venobox.css' %}" rel="stylesheet">
+
+  <!-- Nivo Slider Theme -->
+  <link href="{% static 'mainapp/css/nivo-slider-theme.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'mainapp/css/style/style.css' %}" rel="stylesheet">
+
+  <!-- Responsive Stylesheet File -->
+  <link href="{% static 'mainapp/css/responsive.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: eBusiness
+    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body data-spy="scroll" data-target="#navbar-example">
+
+  <div id="preloader"></div>
+
+  <header>
+    <!-- header-area start -->
+    <div id="sticker" class="header-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+
+
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+                <!-- Brand -->
+                <a class="navbar-brand page-scroll sticky-logo" href="{% url 'mainapp:index' %}">
+                  <h1>M<span>e</span>ns Hostel</h1>
+                  <!-- Uncomment below if you prefer to use an image logo -->
+                  <!-- <img src="mainapp/images/logo.png" alt="" title=""> -->
+								</a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+
+              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active">
+                    <a class="page-scroll" href="#home">Home</a>
+                  </li>
+                  <!-- <li>
+                    <a class="page-scroll" href="#about">About</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#hostel">Hostels</a>
+                  </li>
+                  <!-- <li>
+                    <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+                  </li> -->
+
+                  <!-- <li>
+                    <a class="page-scroll" href="#admission">Admission</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#news">News</a>
+                  </li>
+                  {% if user.is_staff %}
+                  <!-- <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li> -->
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li> <a href="{% url 'mainapp:admin_page' %}">Admin</a> </li>
+                      <li><a  href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li>
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="{% url 'mainapp:profile' %}"> Profile </a></li>
+
+                      <li><a  href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                  {% endif %}
+                </ul>
+
+
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active">
+                    <a class="page-scroll" href="#home">Home</a>
+                  </li>
+                  <!-- <li>
+                    <a class="page-scroll" href="#about">About</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#hostel">Hostels</a>
+                  </li>
+                  <li>
+                    <a class="page-scroll" href="#login">Login</a>
+                  </li>
+
+                  <!-- <li>
+                    <a class="page-scroll" href="#admission">Admission</a>
+                  </li> -->
+                  <li>
+                    <a class="page-scroll" href="#news">News</a>
+                  </li>
+                  <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                  </li>
+                  <!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href=# >drop down 1</a></li>
+                      <li><a href=# >Drop Down 2</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </div>
+              <!-- navbar-collapse -->
+            </nav>
+            {% endif %}
+            <!-- END: Navigation -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header-area end -->
+  </header>
+  <!-- header end -->
+
+  <!-- Start Slider Area -->
+  <div id="home" class="slider-area">
+    <div class="bend niceties preview-2">
+      <div id="ensign-nivoslider" class="slides">
+        <img src="{% static 'mainapp/images/capture.png' %}" alt="" title="#slider-direction-1" />
+        />
+      </div>
+
+      <!-- direction 1 -->
+      <div id="slider-direction-1" class="slider-direction slider-one">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="slider-content">
+                <!-- layer 1 -->
+                <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s" data-wow-delay=".2s">
+                  <h2 class="title1">MAR ATHANASIUS COLLEGE OF ENGINEERING KOTHAMANGALAM</h2>
+                </div>
+                <!-- layer 2 -->
+                <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
+                  <h1 class="title2">Mens Hostel Management System</h1>
+                </div>
+                <!-- layer 3 -->
+                <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                  {% if user.is_authenticated %}
+                  <a class="ready-btn right-btn page-scroll" href="{% url 'logout'  %}">Logout</a>
+
+                  {% else  %}
+                  <a class="ready-btn right-btn page-scroll" href="#login">login</a>
+
+                  {% endif %}
+                  <a class="ready-btn page-scroll" href="#hostel">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- direction 2 -->
+      <div id="slider-direction-2" class="slider-direction slider-two">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="slider-content text-center">
+                <!-- layer 1 -->
+                <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                  <h2 class="title1">Mar Athanasius college of Engineering</h2>
+                  <h2 class="title1">        kothamangalam</h2>
+                </div>
+                <!-- layer 2 -->
+                <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
+                  <h1 class="title2">Mens Hostel management System</h1>
+                </div>
+                <!-- layer 3 -->
+                <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                  <a class="ready-btn right-btn page-scroll" href="#services">See Services</a>
+                  <a class="ready-btn page-scroll" href="#about">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- direction 3 -->
+      <div id="slider-direction-3" class="slider-direction slider-two">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="slider-content">
+                <!-- layer 1 -->
+                <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                  <h2 class="title1">The Best business Information </h2>
+                </div>
+                <!-- layer 2 -->
+                <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
+                  <h1 class="title2">Helping Business Security  & Peace of Mind for Your Family</h1>
+                </div>
+                <!-- layer 3 -->
+                <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                  <a class="ready-btn right-btn page-scroll" href="#services">See Services</a>
+                  <a class="ready-btn page-scroll" href="#about">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Slider Area -->
+
+
+
+  <!-- Start About area -->
+  <!-- <div id="about" class="about-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline text-center">
+            <h2>About Hostel</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="well-left">
+            <div class="single-well">
+              <a href="#">
+								  <img src="{% static 'mainapp/images/kennady.png' %}" alt="">
+								</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="well-middle">
+            <div class="single-well">
+              <a href="#">
+                <h4 class="sec-head">Accomodation Facilities</h4>
+              </a>
+              <p>
+                Mar Athanasius College of Engineering pioneered engineering education in central Kerala in 1961. Managed by Mar Athanasius College Association, Aided by the Government of Kerala, the college was first in Asia under Christian Management. It was also the first engineering college to get affiliated to the Mahatma Gandhi University. MACE, as it is popularly known, has grown by leaps and bounds since. It now has six full fledged departments
+              <ul>
+                <li>
+                  <i class="fa fa-check"></i> Interior design Package
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Building House
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Reparing of Residentail Roof
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Renovaion of Commercial Office
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Make Quality Products
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+  <!-- End About area -->
+
+<div id="hostel" class="blog-area">
+    <div class="blog-inner area-padding">
+      <div class="blog-overly"></div>
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Our Hostels</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Start Left Blog -->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                    <img src="{% static 'mainapp/images/mbh.jpg' %}" alt="">
+                  </a>
+              </div>
+               <p>
+
+
+               </p>
+              <div class="blog-text">
+                <h4>
+                 <a href="blog.html">MB HOSTEL</a>
+                  </h4>
+                <p>MAR BASALIOS HOSTEL is the first men's hostel of the collage.founded on 1982.This hostel has capacity of 103 students.finals year students are allotted here       </p>
+              </div>
+              <span>
+                  <button type="button" class="ready-btn" data-toggle="modal" data-target="#exampleModal"> Read More</button>
+
+<!-- Modal --><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warden details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p> Warden Name:Kora Vargeese</p>
+                        <p> Age        :55</p>
+                        <p>Contact     :9878765344</p>
+                      </div>
+                      <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              </span>
+                <p></p>
+            </div>
+            <!-- Start single blog -->
+          </div>
+          <!-- End Left Blog-->
+          <!-- Start Left Blog -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                    <img src="{% static 'mainapp/images/kennedyh.jpg' %}" alt="">
+                  </a>
+              </div>
+              <p></p>
+
+              <div class="blog-text">
+                <h4>
+                   <a href="blog.html">KENNEDY HOSTEL</a>
+                  </h4>
+                <p>
+                 Kennedy hostel allotted to third year.this hostel established on 1986 may the hostel is under the d1 mess 103 students are allotted here.
+                </p>
+                <p></p>
+              </div>
+              <span>
+                      <button type="button" class="ready-btn" data-toggle="modal" data-target="#Kennedy"> Read More</button>
+
+<!-- Modal --><div class="modal fade" id="Kennedy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warden details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p> Warden Name:Prasanth C</p>
+                        <p> Age        :46</p>
+                        <p>Contact     :9556785541</p>
+                      </div>
+                      <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+                </span>
+                <p></p>
+            </div>
+            <!-- Start single blog -->
+          </div>
+          <!-- End Left Blog-->
+          <!-- Start Right Blog-->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                    <img src="{% static 'mainapp/images/newh.jpg' %}" alt="">
+                  </a>
+              </div>
+              <p>
+
+              </p>
+
+              <div class="blog-text">
+                <h4>
+                  <a href="blog.html">NEW HOSTEL</a>
+                  </h4>
+                <p>
+                  newest hostel of the collage.founded on 2017 and 160 students of second years are allotted here.this hotel is under both D1 and D2 messes
+                </p>
+                <p></p>
+              </div>
+              <span>
+              <button type="button" class="ready-btn" data-toggle="modal" data-target="#nh"> Read More</button>
+
+<!-- Modal --><div class="modal fade" id="nh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warden details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p> Warden Name:KJ Kuriakose</p>
+                        <p> Age        :56</p>
+                        <p>Contact     :9656587412</p>
+                      </div>
+                      <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+                </span>
+                <p></p>
+
+            </div>
+          </div>
+          <!-- End Right Blog-->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                    <img src="{% static 'mainapp/images/hs1h.jpg' %}" alt="">
+                  </a>
+              </div>
+              <p></p>
+
+              <div class="blog-text">
+                <h4>
+                   <a href="blog.html">HS I HOSTEL</a>
+                  </h4>
+                <p>
+                  final year students of btech and MCA are allotted here.hostel has a capasity of 107 students
+                </p>
+              </div>
+              <span>
+               <button type="button" class="ready-btn" data-toggle="modal" data-target="#hs1"> Read More</button>
+
+<!-- Modal --><div class="modal fade" id="hs1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warden details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p> Warden Name:Mohanlal NV</p>
+                        <p> Age        :50</p>
+                        <p>Contact     :8956457885</p>
+                      </div>
+                      <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+                </span>
+            </div>
+          </div>
+            <!-- Start single blog -->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                    <img src="{% static 'mainapp/images/hs2h.jpg' %}" alt="">
+                  </a>
+              </div>
+              <p></p>
+
+              <div class="blog-text">
+                <h4>
+                  <a href="blog.html">HS II HOSTEL</a>
+                  </h4>
+                <p>
+                  this hostel allotted to first year students,hostel has capasity of 50 students.This works under d2 mess.
+                </p>
+
+              </div>
+              <span>
+              <button type="button" class="ready-btn" data-toggle="modal" data-target="#hs2"> Read More</button>
+
+<!-- Modal --><div class="modal fade" id="hs2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warden details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p> Warden Name:Kurian Thomas</p>
+                        <p> Age        :46</p>
+                        <p>Contact     :7545825145</p>
+                      </div>
+                      <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+                </span>
+            </div>
+            <!-- Start single blog -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Start Service area -->
+  <div id="login" class="services-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline services-head text-center">
+            <h2>log in</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="services-contents">
+          <!-- Start Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="{% url 'login' %}">
+											<i class="fas fa-user-graduate"></i>
+										</a>
+                    <a href="{% url 'login' %}">
+                  <h4>Student Login</h4></a>
+
+                </div>`
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="{% url 'login' %}">
+											<i class="fas fa-book-reader"></i>
+										</a>
+                    <a  href="{% url 'login' %}"> <h4>Office/Staff Login </h4></a>
+
+
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="{% url 'login' %}">
+											<i class="fas fa-toolbox"></i>
+										</a>
+
+                   <a href="{% url 'login' %}"> <h4>Administrator Login</h4></a>
+
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Service area -->
+
+  <!-- our-skill-area end -->
+
+  <!-- Faq area start -->
+
+  <!-- Start Wellcome Area -->
+  <div  id="admission"class="wellcome-area">
+    <div class="well-bg">
+      <div class="test-overly"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="wellcome-text">
+              <div class="well-text text-center">
+                <h2>Admission</h2>
+                <p>
+                  The admissions to men's hostel is based on the ranks obtained in the State Entrance Examinations conducted by Commissioner of Entrance Examinations. Admissions to MTech aided courses are based on the rank list prepared by the DTE, Thiruvananthapuram. For all the above courses, 85% seats are admitted by the state Government and remaining 15% of the seats are filled by the management based on the ranks obtained in the list published by DTE.
+                </p>
+
+                  <button type="button" class="btn btn-primary">Apply Now</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Wellcome Area -->
+
+  <!-- Star<<pt team Area -->
+
+  <!-- End Team Area -->
+
+  <!-- Start reviews Area -->
+  <p></p>
+
+  <!-- End reviews Area -->
+
+  <!-- Start portfolio Area -->
+
+  <!-- Start Blog Area -->
+  <div id="news" class="blog-area">
+    <div class="blog-inner area-padding">
+      <div class="blog-overly"></div>
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Latest News</h2>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Start Left Blog -->
+          {% for n in notification_list %}
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+
+										<!-- <img src="{% static 'mainapp/images/blog/1.jpg' %}" alt=""> -->
+
+              </div>
+              <div class="blog-meta">
+                <span class="comments-type">
+										<!-- <i class="fa fa-comment-o"></i> -->
+									<p class="text-center">{{n.author}}</p>
+									</span>
+                <span class="date-type">
+										<i class="fa fa-calendar"></i>{{n.publish_time}}
+									</span>
+              </div>
+              <div class="blog-text">
+                <h4>
+                  <p>{{n.title}}</p>
+									</h4>
+                <p>{{n.msg}}
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          {% endfor %}
+          <!-- End Right Blog-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Blog -->
+  <!-- Start Suscrive Area -->
+  <div class="suscribe-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+          <div class="suscribe-text text-center">
+            <h3></h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Suscrive Area -->
+  <!-- Start contact Area -->
+  <div id="contact" class="contact-area">
+    <div class="contact-inner area-padding">
+      <div class="contact-overly"></div>
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Contact us</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Start contact icon column -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="contact-icon text-center">
+              <div class="single-icon">
+                <i class="fa fa-mobile"></i>
+                <p>
+                  Call:  099467 58379<br>
+                  <span>Monday-Friday (9am-5pm)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Start contact icon column -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="contact-icon text-center">
+              <div class="single-icon">
+                <i class="fa fa-envelope-o"></i>
+                <p>
+                  Email: webadmin@mace.ac.inm<br>
+                  <span>Web: www.mace.ac.in</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Start contact icon column -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="contact-icon text-center">
+              <div class="single-icon">
+                <i class="fa fa-map-marker"></i>
+                <p>
+                  Location: kothamangalam<br>
+                  <span>Kerala,INDIA</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <!-- Start Google Map -->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <!-- Start Map -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4409.662548965533!2d76.6200311426366!3d10.052914303735841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e6154a2133e5%3A0x2c26b2d532bb30ea!2sMar+Athanasius+College+of+Engineering+Kothamangalam!5e0!3m2!1sen!2sin!4v1542636933856" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>s
+            <!-- End Map -->
+          </div>
+          <!-- End Google Map -->
+
+          <!-- Start  contact -->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form contact-form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+          <!-- End Left contact -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Contact Area -->
+
+  <!-- Start Footer bottom Area -->
+  <footer>
+
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright <strong>eBusiness</strong>. All Rights Reserved
+              </p>
+            </div>
+            <div class="credits">
+              <!--
+                All the links in the footer should remain intact.
+                You can delete the links only if you purchased the pro version.
+                Licensing information: https://bootstrapmade.com/license/
+                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
+              -->
+              Designed by <a href="https://bootstrapmade.com/">bootstrapmade
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'mainapp/js/jquery.min.js' %}"></script>
+  <script src="{% static 'mainapp/js/bootstrap.min1.js' %}"></script>
+  <script src="{% static 'mainapp/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'mainapp/js/venobox.min.js' %}"></script>
+  <script src="{% static 'mainapp/js/jquery.knob.js' %}"></script>
+  <script src="{% static 'mainapp/js/wow.min.js' %}"></script>
+  <script src="{% static 'mainapp/js/parallax.js' %}"></script>
+  <script src="{% static 'mainapp/js/easing.min.js' %}"></script>
+  <script src="{% static 'mainapp/js/jquery.nivo.slider.js' %}" type="text/javascript"></script>
+  <script src="{% static 'mainapp/js/jquery.appear.js' %}"></script>
+  <script src="{% static 'mainapp/js/isotope.pkgd.min.js' %}"></script>
+
+
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'mainapp/js/contactform.js' %}"></script>
+
+  <script src="{% static 'mainapp/js/main.js' %}"></script>
+</body>
+
+</html>
